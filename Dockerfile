@@ -10,6 +10,7 @@ RUN --mount=type=cache,target=${WORKDIR}/target/ \
 RUN cargo zigbuild --release --target x86_64-unknown-linux-gnu
 RUN cargo install --path .
 
+# 圧縮
 FROM ubuntu AS press
 
 WORKDIR /works
