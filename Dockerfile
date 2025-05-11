@@ -14,7 +14,7 @@ RUN cargo install --path .
 FROM ubuntu AS press
 
 WORKDIR /works
-RUN apt-get install -y upx
+RUN apt-get update && apt-get install -y upx
 
 COPY --from=builder /usr/local/cargo/bin/discord_utils /works/
 RUN upx /works/discord_utils
