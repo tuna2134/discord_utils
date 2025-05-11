@@ -7,7 +7,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  # IMAGE_NAME (Repository Name)
+  IMAGE_NAME: ''
   TAGS: |
     type=edge
     type=ref,event=pr
@@ -23,6 +24,10 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Set Image Namme
+        run: |
+          echo "IMAGE_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v4
 
