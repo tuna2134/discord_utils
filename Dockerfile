@@ -14,7 +14,7 @@ RUN cargo install --path .
 FROM gcr.io/distroless/static:nonroot
 
 WORKDIR /app
-COPY --from=builder /usr/local/cargo/bin/myapp /app/
+COPY --from=builder /usr/local/cargo/bin/discord_utils /app/
 
 USER nonroot
 
