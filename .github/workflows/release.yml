@@ -22,5 +22,5 @@ jobs:
         uses: release-drafter/release-drafter@v6
         with:
           tag: ${{ env.RELEASE_TAG }}
-          name: "Release ${{ env.RELEASE_TAG }}"
+          name: ${{ env.RELEASE_TAG }}
           version: ${{ env.RELEASE_TAG }}
